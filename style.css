@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 html {
@@ -16,10 +17,8 @@ body {
 
 .nav,
 .main {
-  /* height: 8vh; */
-  /* background-color: antiquewhite; */
   text-align: center;
-  /* padding: 1rem; */
+
   margin-bottom: 2rem;
 }
 
@@ -77,7 +76,7 @@ body {
 
 .more-quotes {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
 }
 
@@ -92,4 +91,31 @@ body {
   height: max-content;
   font-weight: 600;
   margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .quote,
+  .sub-quotes,
+  .statusMsg {
+    height: 40vh;
+    width: 80vw;
+  }
+
+  .more-quotes {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .sub-quotes {
+    height: max-content;
+    width: 55vw;
+    text-align: left;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 360px) {
+  .more-quotes {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+  }
 }
